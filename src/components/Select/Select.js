@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { COLORS } from '../../constants';
 import Icon from '../Icon';
+import VisuallyHidden from '../VisuallyHidden';
 import { getDisplayedValue } from './Select.helpers';
 
 const Select = ({ label, value, onChange, children }) => {
@@ -10,7 +11,10 @@ const Select = ({ label, value, onChange, children }) => {
 
   return (
     <Wrapper>
-      <NativeSelect value={value} onChange={onChange}>
+      <VisuallyHidden>
+        {label}
+      </VisuallyHidden>
+      <NativeSelect value={value} onChange={onChange} id={label}>
         {children}
       </NativeSelect>
       <PresentationalBit>
